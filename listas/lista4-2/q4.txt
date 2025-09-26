@@ -1,0 +1,6 @@
+O codígo imprimirá uma matriz nxn, onde cada elemento é a soma de seus índices.
+Por exemplo, para n=3, esse é o resultado:
+
+2 3 4
+3 4 5
+4 5 6

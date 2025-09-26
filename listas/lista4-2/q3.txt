@@ -1,0 +1,8 @@
+O código imprimirá uma saída com n linhas, onde cada linha contém números decrescentes até 1, aumentando um item a cada linha
+Por exemplo, para n=5, esse será o resultado:
+
+1
+2 1
+3 2 1
+4 3 2 1
+5 4 3 2 1

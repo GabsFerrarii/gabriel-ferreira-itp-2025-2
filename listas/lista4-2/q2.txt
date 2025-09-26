@@ -1,0 +1,8 @@
+O código vai imprimir uma saída com n linhas onde cada linha adiciona um número natural a mais.
+Por exemplo, para n=5, a saída será essa:
+
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5

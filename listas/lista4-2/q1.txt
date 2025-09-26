@@ -1,0 +1,7 @@
+O código descrito terá essa saída:
+
+0 1 2 3
+0 1 2 3
+0 1 2 3
+0 1 2 3
+0 1 2 3
