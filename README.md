@@ -1,7 +1,7 @@
 # Introdução a Técnicas de Programação - Unidade 1
 
-**Aluno**: Gabriel Ferreira Cavalcante
-**Matrícula**: 20250035736
+**Aluno**: Gabriel Ferreira Cavalcante  
+**Matrícula**: 20250035736  
 **Período**: 2025.2
 
 ## 📁 Estrutura do Projeto
@@ -10,8 +10,8 @@
 - `README.md`: Este arquivo
 
 ## 🚀 Projeto: Jogo Da Vida de Conway em C
-**Descrição**: Este projeto é uma implementação do clássico autômato celular "Jogo da Vida" de John Conway, desenvolvido inteiramente na linguagem C. O programa simula a evolução de uma colônia de células em um tabuleiro bidimensional, onde o usuário pode definir o estado inicial e observar as gerações se desenvolverem de acordo com um conjunto de regras simples. A interação é feita via linha de comando (CLI).
-**Repositório**: [https://github.com/GabsFerrarii/gabriel-ferreira-itp-2025-2]
+**Descrição**: Este projeto é uma implementação do clássico autômato celular "Jogo da Vida" de John Conway, desenvolvido inteiramente na linguagem C. O programa simula a evolução de uma colônia de células em um tabuleiro bidimensional, onde o usuário pode definir o estado inicial e observar as gerações se desenvolverem de acordo com um conjunto de regras simples. A interação é feita via linha de comando (CLI).  
+**Repositório**: [Itp-2025-2/projeto]([https://github.com/GabsFerrarii/gabriel-ferreira-itp-2025-2](https://github.com/GabsFerrarii/gabriel-ferreira-itp-2025-2/tree/main/projeto))  
 **Vídeo de Demonstração**: [TODO]
 
 ### Funcionalidades Implementadas:
@@ -92,5 +92,5 @@ Já venho de um contexto com base em programação, pois estava em um curso téc
 
 ## 🔧 Ambiente de Desenvolvimento
 - **SO**: Windows
-- **Compilador**: GCC versão [15.2.0]
+- **Compilador**: GCC versão `15.2.0`
 - **Editor**: VS Code
