@@ -18,7 +18,7 @@ int main()
     int tabuleiro[ALTURA][LARGURA];
     int proximoTabuleiro[ALTURA][LARGURA];
     int numeroGeracoes = 100;
-    char tituloGeracao[50]; // Buffer para a string do título
+    char tituloGeracao[50];
 
     inicializarTabuleiro(tabuleiro);
 

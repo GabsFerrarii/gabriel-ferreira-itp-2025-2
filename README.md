@@ -12,7 +12,7 @@
 ## 🚀 Projeto: Jogo Da Vida de Conway em C
 **Descrição**: Este projeto é uma implementação do clássico autômato celular "Jogo da Vida" de John Conway, desenvolvido inteiramente na linguagem C. O programa simula a evolução de uma colônia de células em um tabuleiro bidimensional, onde o usuário pode definir o estado inicial e observar as gerações se desenvolverem de acordo com um conjunto de regras simples. A interação é feita via linha de comando (CLI).  
 **Repositório**: [Itp-2025-2/projeto]([https://github.com/GabsFerrarii/gabriel-ferreira-itp-2025-2](https://github.com/GabsFerrarii/gabriel-ferreira-itp-2025-2/tree/main/projeto))  
-**Vídeo de Demonstração**: [TODO]
+**Vídeo de Demonstração**: [Entrega da U1](https://youtu.be/AHrKrddTh1o)
 
 ### Funcionalidades Implementadas:
 - Tabuleiro Configurável: As dimensões do tabuleiro (altura e largura) podem ser facilmente alteradas através de constantes no código.
