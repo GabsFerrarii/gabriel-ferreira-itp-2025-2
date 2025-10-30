@@ -19,6 +19,7 @@ void inicializarTabuleiro(int* tabuleiro, int altura, int largura) {
     printf("4 - Modo de edicao manual\n");
     printf("Escolha uma opcao: ");
     scanf("%d", &opcao);
+    while (getchar() != '\n');
 
     switch (opcao) {
         case 1: // Glider
@@ -56,9 +57,11 @@ void inicializarTabuleiro(int* tabuleiro, int altura, int largura) {
 
                 scanf("%d", &linha);
                 if (linha == -1) {
+                    while (getchar() != '\n');
                     break;
                 }
                 scanf("%d", &coluna);
+                while (getchar() != '\n');
 
                 if (linha >= 0 && linha < altura && coluna >= 0 && coluna < largura) {
                     tabuleiro[linha * largura + coluna] = 1;
@@ -110,12 +113,10 @@ int contarVizinhosVivos(int* tabuleiro, int altura, int largura, int linha, int 
                 continue;
             }
 
-            int vizinhoLinha = linha + i;
-            int vizinhoColuna = coluna + j;
+            int vizinhoLinha = (linha + i + altura) % altura;
+            int vizinhoColuna = (coluna + j + largura) % largura;
 
-            if (vizinhoLinha >= 0 && vizinhoLinha < altura && vizinhoColuna >= 0 && vizinhoColuna < largura) {
-                contador += tabuleiro[vizinhoLinha * largura + vizinhoColuna];
-            }
+            contador += tabuleiro[vizinhoLinha * largura + vizinhoColuna];
         }
     }
     return contador;
@@ -146,9 +147,74 @@ void copiarTabuleiro(int* destino, int* origem, int altura, int largura) {
     }
 }
 
-void esperarEnter() {
-    printf("\nPressione Enter para a proxima acao...");
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF) {
+int esperarEnter() {
+    printf("\nPressione Enter para a proxima acao (ou 's' para salvar)...");
+    int c = getchar();
+    
+    int temp;
+    if (c != '\n' && c != EOF) {
+        while ((temp = getchar()) != '\n' && temp != EOF);
     }
+    
+    return c;
 }
+
+void salvarTabuleiro(int* tabuleiro, int altura, int largura) {
+    char nomeArquivo[100];
+    printf("\nDigite o nome do arquivo para salvar (ex: padrao.bin): ");
+    scanf("%99s", nomeArquivo);
+    while (getchar() != '\n'); 
+
+    FILE* arquivo = fopen(nomeArquivo, "wb"); 
+    if (arquivo == NULL) {
+        printf("Erro ao abrir arquivo para salvar!\n");
+        esperarEnter();
+        return;
+    }
+
+    fwrite(&altura, sizeof(int), 1, arquivo);
+    fwrite(&largura, sizeof(int), 1, arquivo);
+    fwrite(tabuleiro, sizeof(int), altura * largura, arquivo);
+
+    fclose(arquivo);
+    printf("Tabuleiro salvo com sucesso em %s!\n", nomeArquivo);
+    esperarEnter(); 
+}
+
+int* carregarTabuleiro(int* ptrAltura, int* ptrLargura, int** ptrProximoTabuleiro) {
+    char nomeArquivo[100];
+    printf("Digite o nome do arquivo para carregar (ex: padrao.bin): ");
+    scanf("%99s", nomeArquivo);
+    while (getchar() != '\n');
+
+    FILE* arquivo = fopen(nomeArquivo, "rb"); 
+    if (arquivo == NULL) {
+        printf("Erro: Arquivo %s nao encontrado!\n", nomeArquivo);
+        return NULL;
+    }
+
+    fread(ptrAltura, sizeof(int), 1, arquivo);
+    fread(ptrLargura, sizeof(int), 1, arquivo);
+
+    int tamanho = (*ptrAltura) * (*ptrLargura);
+
+    int* tabuleiro = (int*) malloc(tamanho * sizeof(int));
+    *ptrProximoTabuleiro = (int*) malloc(tamanho * sizeof(int));
+
+    if (tabuleiro == NULL || *ptrProximoTabuleiro == NULL) {
+        printf("Erro ao alocar memoria para carregar o jogo!\n");
+        fclose(arquivo);
+        free(tabuleiro);
+        free(*ptrProximoTabuleiro);
+        return NULL;
+    }
+
+    fread(tabuleiro, sizeof(int), tamanho, arquivo);
+
+    fclose(arquivo);
+    printf("Tabuleiro %dx%d carregado de %s!\n", *ptrAltura, *ptrLargura, nomeArquivo);
+    esperarEnter();
+
+    return tabuleiro;
+}
+
